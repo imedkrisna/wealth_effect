@@ -9,7 +9,7 @@ library(tseries)   # ADF tests
 library(dynlm)     # ECM estimation
 library(vars)      # VECM and IRF
 library(lmtest)    # For Durbin-Watson test
-library(dplyr)     # Data wrangling
+library(tidyverse)     # Data wrangling
 library(zoo)       # Date handling
 
 # --- 2. Data Import ---
@@ -313,7 +313,8 @@ get_fan_data_8pct <- function(irf_obj, resp_name, scale_val) {
 
 # 3. Create DataFrames
 df_rsi_8 <- get_fan_data_8pct(irf_main, "RSI", scaling_factor_8pct)
-df_inc_8 <- get_fan_data_8pct(irf_main, "Income", scaling_factor_8pct)
+df_inc_8 <- get_fan_data_8pct ## ada bug di sini
+(irf_main, "Income", scaling_factor_8pct)
 
 # 4. Plotting Function
 plot_fan_8pct <- function(df, title, base_color) {
